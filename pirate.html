@@ -29,6 +29,7 @@
       
         <p class="lead" style="background-color:red" onclick="help()"><b>Click for help.</b></p>
         <p id="help" ></p>
+        <button type="button" class="button" onclick="resetGame()"><b>New Game</b></button>
         
 
     </div> <br>
@@ -77,6 +78,8 @@
         var lastCheck = 0;
         var treasureLocation = 5;
         var trapLocation = 18;
+        var treasureLocation = Math.floor(Math.random() * 25);
+        var trapLocation = Math.floor(Math.random() * 25);
         var gameOver = false;
         function check(position) {
             if (gameOver != true) {
@@ -135,7 +138,18 @@
         }
 
 
-    
+        function resetGame() {
+            treasureLocation = Math.floor(Math.random() * 25);
+            trapLocation = Math.floor(Math.random() * 25);
+            checkCount = 0
+            penalty = 0
+            document.getElementById("locations").innerHTML = "Number of locations checked is zero";
+            document.getElementById("penalty").innerHTML = "Penalty is zero";
+            for (let i = 0; i < 25; i++) {
+                document.getElementById(ids[i]).src = "treasure-chest.jpg";
+            }
+        }
+
 
 </script>
 
